@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Jokênpo</title>
+</head>
+<body>
+
+    <h1>Pedra, Papel ou Tesoura!</h1>
+    <h2 id="frase">Escolha uma opção:</h2>
+
+    <div id="area-escolha">
+        <img src="img/pedra.png" onclick="select(0)" alt="" id="pedra">
+        <img src="img/papel.png" onclick="select(1)" alt="" id="papel">
+        <img src="img/tesoura.png" onclick="select(2)" alt="" id="tesoura">
+    </div>
+
+    <div id="area-resultado">
+        <img src="img/pedra.png" alt="" id="jogador">
+        <img src="img/pc-papel.png" alt="" id="pc">
+        <br>
+        <button id="botao" onclick="location.reload(true)">Recomeçar</button>
+    </div>
+
+<script>
+    let frase = document.getElementById("frase");
+    let jogador = document.getElementById("jogador");
+    let pc = document.getElementById("pc");
+    let botao = document.getElementById("botao");
+    let areaEscolha = document.getElementById("area-escolha");
+    let areaResultado = document.getElementById("area-resultado");
+
+    let imagens_jogador = ["img/pedra.png", "img/papel.png", "img/tesoura.png"];
+
+    let imagens_pc = ["img/pc-pedra.png", "img/pc-papel.png", "img/pc-tesoura.png"];
+
+    let index = 0;
+
+    function efeitoImagem(){
+        jogador.src = imagens_jogador[index];
+        pc.src = imagens_pc[index];
+
+        index++;
+        if(index === 3){
+            index = 0
+        }
+    }
+
+    let efeito = setInterval(efeitoImagem, 100);
+
+    function select(escolhaJogador){
+        areaEscolha.style.display = 'none';
+
+        areaResultado.style.display = 'block';
+
+        frase.textContent = '3';
+
+        let tempo = setInterval(() => {
+            let cronometro = parseInt(frase.textContent);
+            cronometro--;
+            frase.textContent = cronometro;
+
+            if(cronometro === 0){
+                clearInterval(tempo);
+                clearInterval(efeito);
+            }
+
+        }, 1000);
+
+        setTimeout(() => {
+            
+            let escolhaPc = Math.floor(Math.random() * 3);
+            console.log(`Escolha do Pc: ${escolhaPc}`);
+
+            pc.src = imagens_pc[escolhaPc];
+
+            jogador.src = imagens_jogador[escolhaJogador];
+
+            if(escolhaJogador === escolhaPc){
+                frase.textContent = 'Empatou!';
+                botao.style.display = 'block';
+                return false;
+            }
+
+            switch(escolhaJogador){
+                case 0:
+                escolhaPc === 2 ? frase.textContent = "Jogador Venceu!" : frase.textContent = "PC Venceu!";
+                botao.style.display = 'block';
+                break;
+                case 1:
+                escolhaPc === 0 ? frase.textContent = "Jogador Venceu!" : frase.textContent = "PC Venceu!";
+                botao.style.display = 'block';
+                break;
+                case 2:
+                escolhaPc === 1 ? frase.textContent = "Jogador Venceu!" : frase.textContent = "PC Venceu!";
+                botao.style.display = 'block';
+                break;
+                default:
+                    alert('Escolha inválida!');
+            }
+
+        }, 3000);
+
+    }
+
+</script>
+    
+</body>
+</html>
