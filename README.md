@@ -4,7 +4,9 @@ Este projeto é uma implementação simples e visualmente agradável do clássic
 
 FUNCIONALIDADES:
 ​Interface Intuitiva: O jogo utiliza imagens de mãos para representar as escolhas (pedra, papel e tesoura), tornando a interação clara e direta.
+
 ​Feedback em Tempo Real: O resultado da partida (vitória, derrota ou empate) é exibido instantaneamente na tela, oferecendo uma experiência de jogo fluida.
+
 ​Reinício Fácil: Um botão "Recomeçar" permite que o usuário inicie uma nova rodada a qualquer momento, mantendo a simplicidade do jogo.
 ​
 TECNOLOGIAS UTILIZADAS:
