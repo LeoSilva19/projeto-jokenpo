@@ -24,3 +24,5 @@ COMO EXECUTAR O PROJETO:
    cd jokenpo
 
 3. Abra o arquivo index.html em qualquer navegador web moderno (como Chrome, Firefox ou Edge). Não é necessário instalar nenhuma dependência ou servidor.
+
+Projeto no ar: https://leonardoaraujo18.github.io/projeto-jokenpo/
